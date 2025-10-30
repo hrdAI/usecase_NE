@@ -1,0 +1,91 @@
+<div id="case-doc-python" class="case-card case-content active">
+    <h2><i class="fab fa-python"></i> [문서 처리] Python 활용 교재 PDF 문항 자동 추출 2</h2>
+    <p class="lead"><span class="badge me-2">작성자: 콘텐츠개발팀 (가상)</span><span class="badge">부문: 문서/데이터 처리 자동화</span></p>
+
+    <div class="alert alert-secondary p-3 mb-4">
+        <ul class="list-unstyled mb-0" style="font-size: 0.95rem;">
+            <li class="mb-2">1️⃣ <strong>구현 사례 :</strong> [문서 처리] Python 활용 교재 PDF 문항 자동 추출</li>
+            <li class="mb-2">2️⃣ <strong>활용 부서 :</strong> 콘텐츠개발팀 (가상)</li>
+            <li class="mb-2">3️⃣ <strong>구현 도구 :</strong> Python (ChatGPT 활용)</li>
+            <li class="mb-2">4️⃣ <strong>활용 기술 :</strong> PDF 이미지 변환, 이미지 분할/병합, 자동 저장</li>
+        </ul>
+    </div>
+
+    <aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-0" style="font-size: 1rem;">📌 <strong>PDF 이미지 변환이란?</strong></h5>
+        <hr>
+        <p class="mb-0 small">
+            PDF 문서의 각 페이지를 PNG나 JPG 같은 '이미지' 파일로 바꾸는 기술이에요. 텍스트가 아닌 그림으로 만들어, Python이 이미지를 자르거나 붙이는 등의 작업을 할 수 있게 해줍니다.
+        </p>
+    </aside>
+
+    <!-- ⬇️ 팟캐스트 오디오 섹션 (스타일 수정됨) ⬇️ -->
+    <aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-3"><i class="fas fa-podcast me-2"></i> 구현사례 소개 팟캐스트</h5>
+        <hr>
+        <p class="mb-2">사례를 살펴보기 전, 팟캐스트를 청취해 보세요.</p>
+        
+        <audio controls class="w-100 mb-3" style="min-height: 50px;">
+            <!-- 오디오 파일 경로 적용 -->
+            <source src="assets/audio/python-case1.m4a" type="audio/mp4">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <ul class="list-unstyled small text-muted mb-0">
+            <li class="mb-2">• 본 팟캐스트는 NotebookLM으로 제작되었습니다.</li>
+            <li>
+                <a href="https://notebooklm.google.com/" target="_blank" class="text-decoration-none">
+                    <div class="bg-white border rounded p-2 px-3" style="font-family: 'Courier New', Courier, monospace; font-size: 0.9rem;">
+                        notebooklm.google.com
+                        <br>
+                        <span class="text-primary">https://notebooklm.google.com/</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!-- ⬆️ 팟캐스트 오디오 섹션 끝 ⬆️ -->
+
+    <h3>1. 배경</h3>
+    <p><strong>[ 업무 상황 ]</strong><br> 교재 문항 추출이 필요한 경우 외주 인력을 통해 사람이 직접 교재 pdf를 보고 포토샵을 활용해 문항 이미지를 하나씩 잘라서 저장하는 비효율 발생</p>
+    
+    <h3>2. 자동화 과정</h3>
+    <p><strong>[ Python을 통한 pdf 자동 추출 ]</strong></p>
+    <h4 class="mt-4">자동화 프로세스 이미지</h4>
+    <img src="assets/images/python-case1.png" class="img-fluid" alt="자동화 프로세스 다이어그램">
+
+    <h4 class="mt-4">코드 생성을 위한 프롬프트 설계</h4>
+    <aside class="alert">
+        <h5 class="alert-heading">💡 Python 코드 생성을 위한 챗GPT 프롬프트</h5>
+        <hr>
+        <code>PDF를 이미지로 변환<br>이미지 내 불필요한 여백 제거<br>(좌/우 200px, 상단 200px, 하단 300px)<br>세로선을 기준으로 좌/우 영역 분리<br>(2단 배열 처리)<br>좌측 상단 → 우측 하단 순서로 이미지 이어 붙이기<br>문항 시작~끝을 기준으로 개별 이미지로 분할 및<br>저장 (저장 시 이름은 0001.png, 0002.png…)</code>
+    </aside>
+    <h4 class="mt-4">ChatGPT를 활용한 코드 생성 및 실행</h4>
+    <p>생성된 코드를 Python 환경에 입력 후 실행합니다.</p>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <img src="assets/images/python-case2.png" class="img-fluid" alt="파이썬 코드 스크린샷 1">
+        </div>
+        <div class="col-md-6 mb-3">
+            <img src="assets/images/python-case3.png" class="img-fluid" alt="파이썬 코드 스크린샷 2">
+        </div>
+    </div>
+    <h3>3. 이슈 발생 및 해결 방안</h3>
+    <ul>
+        <li><strong>시각적 요소 설명의 한계</strong><br> 내용: 2단 구성으로 된 문항을 문항 번호 기준으로 분할하거나 병합하는 방식 등 시각적 요소에 대한 설명이 어려움.<br>해결 방안: 처리 단계를 세분화하여 설계. 세로선을 기준으로 이미지를 좌우로 분할한 후, 세로 방향으로 이어 붙이는 방식을 적용하여 2단 구성의 한계를 극복함.</li>
+        <li><strong>문자 인식 정확도 문제</strong><br> 내용: OCR(광학 문자 인식)을 활용해 문항 번호를 읽고 이미지를 추출할 때 제대로 처리되지 않는 오류 발생.<br>해결 방안: 문항 번호 패턴을 검증하는 추가 로직을 적용하여 잘못 인식된 경우 예외 처리되도록 설계하고, 필요 시 수동 검증 절차를 도입하여 오류 최소화.</li>
+        <li><strong>시스템 처리 한계</strong><br> 내용: 모든 작업을 한 번에 처리하려다 보니 리소스 초과로 프로그램이 멈추는 문제 발생.<br>해결 방안: 전체 코드를 한 번에 실행하는 대신, 페이지별로 분할하여 단계적으로 처리하도록 시스템을 개선.</li>
+    </ul>
+    <h3>4. 도입 성과: 연간 116시간 절감</h3>
+    <p>이번 자동화를 통해 획기적인 업무 시간 단축을 이룰 수 있었습니다.</p>
+    <ul class="list-unstyled">
+        <li><i class="fas fa-check-circle text-success"></i> <strong>기존 (수작업):</strong> 연간 120시간 소요 (외주인력 1명, 교재당 40시간)</li>
+        <li><i class="fas fa-check-circle text-success"></i> <strong>개선 (자동화):</strong> 연간 3~4시간 소요</li>
+    </ul>
+    <div class="alert alert-primary fw-bold text-center fs-5">➡️ 업무 시간 약 97% 단축 효과!</div>
+    <ul>
+        <li>최종 검수 기간 불필요</li>
+        <li>포토샵 라이선스 비용 절감</li>
+        <li>휴먼 에러 가능성 제거</li>
+    </ul>
+</div>
