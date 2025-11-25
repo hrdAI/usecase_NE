@@ -64,35 +64,25 @@ function updateBookmarkButtonUI(button, caseId) {
  */
 function buildBookmarkSidebarSection() {
     const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-    const isExpanded = bookmarks.length > 0;
     const submenuId = "submenu-bookmarks";
-
+    
+    // [MODIFIED] HTML은 항상 닫힌 상태로 생성 (updateBookmarkSidebar에서 상태 복원)
     let html = `
         <li class="app-sidebar-main-category" id="bookmark-main-category">
-            <div class="sidebar-main-category-header">
-                <i class="fas fa-user-tag"></i><span class="menu-text">내 활동</span>
-            </div>
-        </li>
-    `;
-    
-    html += `
-        <li id="bookmark-mid-category-wrapper">
-            <div class="sidebar-mid-category-header ${isExpanded ? '' : 'collapsed'}" 
+            <div class="sidebar-main-category-header collapsed" 
                  data-bs-toggle="collapse" 
                  data-bs-target="#${submenuId}" 
-                 aria-expanded="${isExpanded}">
-                 
-                <div class="d-flex"><i class="fas fa-star"></i><span class="menu-text">북마크한 사례</span></div>
+                 aria-expanded="false">
+                <div class="d-flex"><i class="fas fa-user-tag"></i><span class="menu-text">내 활동</span></div>
                 <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
             </div>
-            
-            <ul class="sidebar-submenu collapse ${isExpanded ? 'show' : ''}" id="${submenuId}">
+            <ul class="sidebar-submenu collapse" id="${submenuId}">
     `;
 
     if (bookmarks.length === 0) {
         html += `
             <li class="app-sidebar-item">
-                <span class="app-sidebar-link" style="padding-left: 55px; color: #888; font-style: italic; cursor: default;">
+                <span class="app-sidebar-link" style="padding-left: 40px; color: #888; font-style: italic; cursor: default;">
                     <span class="menu-text">북마크가 없습니다.</span>
                 </span>
             </li>
@@ -123,15 +113,15 @@ function updateBookmarkSidebar() {
     const sidebarMenuList = document.getElementById('sidebar-menu-list');
     if (!sidebarMenuList) return;
 
+    // [NEW] 기존 북마크 메뉴의 열림/닫힘 상태 저장
+    const existingSubmenu = document.getElementById('submenu-bookmarks');
+    const wasExpanded = existingSubmenu ? existingSubmenu.classList.contains('show') : false;
+
     const existingHeader = document.getElementById('bookmark-main-category');
-    const existingWrapper = document.getElementById('bookmark-mid-category-wrapper');
     if (existingHeader) existingHeader.remove();
-    if (existingWrapper) existingWrapper.remove();
 
     if (allCasesData.length === 0 && (JSON.parse(localStorage.getItem('bookmarks')) || []).length > 0) {
-        // [MODIFIED] allCasesData가 비동기로 로드되므로, 이 경고는 initializeApp에서만 의미가 있습니다.
-        // 북마크 버튼 클릭 시에는 allCasesData가 이미 있어야 합니다.
-        if(sidebarData) { // sidebarData가 로드되었다는 것은 앱 초기화가 진행 중이거나 완료되었다는 뜻
+        if(sidebarData) {
              console.warn("북마크를 그리려 했으나 allCasesData가 아직 준비되지 않았습니다. (데이터 로딩 중)");
         }
         return;
@@ -146,9 +136,17 @@ function updateBookmarkSidebar() {
          sidebarMenuList.insertAdjacentHTML('beforeend', bookmarkHTML);
     }
 
+    // [MODIFIED] collapse 인스턴스 생성 및 상태 복원
     const newCollapseElement = document.getElementById('submenu-bookmarks');
     if (newCollapseElement) {
-        bootstrap.Collapse.getOrCreateInstance(newCollapseElement);
+        const collapseInstance = new bootstrap.Collapse(newCollapseElement, {
+            toggle: false // 자동 토글 방지
+        });
+        
+        // [NEW] 이전 상태가 열림이었다면 다시 열기
+        if (wasExpanded) {
+            collapseInstance.show();
+        }
     }
 }
 
@@ -275,7 +273,7 @@ function updatePageTitle(contentLoader, targetHash, pageTitleH2, pageTitleP) {
         // 여기서는 .case-card .badge 중 첫 번째 배지를 카테고리로 간주
         const cardBadge = cardElement?.querySelector('.badge')?.innerText || "AI 활용";
         pageTitleH2.textContent = cardBadge + " 사례";
-        pageTitleP.textContent = cardTitle + " 상세 내용입니다.";
+        pageTitleP.textContent = "";
     }
 }
 
@@ -285,23 +283,12 @@ function updatePageTitle(contentLoader, targetHash, pageTitleH2, pageTitleP) {
  */
 function updateActiveLink(targetHash, clickedElement = null) {
     // 1. 모든 링크 비활성화
-    document.querySelectorAll('.app-sidebar-link.case-link, .sidebar-sub-category-header, .sidebar-mid-category-header').forEach(link => {
+    document.querySelectorAll('.app-sidebar-link.case-link').forEach(link => {
         link.classList.remove('active');
-        if(link.hasAttribute('data-bs-toggle')) { // data-bs-toggle이 있는 모든 헤더
-            link.setAttribute('aria-expanded', 'false');
-            link.classList.add('collapsed'); 
-        }
     });
 
-    // 2. 모든 콜랩스 메뉴 접기 (북마크 메뉴 제외)
-    document.querySelectorAll('.sidebar-submenu.show, .sidebar-case-list.show').forEach(element => {
-        if (element.id !== 'submenu-bookmarks') {
-            const collapseInstance = bootstrap.Collapse.getInstance(element);
-            if (collapseInstance) {
-                collapseInstance.hide();
-            }
-        }
-    });
+    // 2. [REMOVED] 모든 콜랩스 메뉴 접기 로직 제거
+    // 사용자가 수동으로 열어둔 메뉴는 그대로 유지
 
     // 3. [MODIFIED] 타겟 링크 활성화
     let targetLink = null;
@@ -361,60 +348,49 @@ function updateActiveLink(targetHash, clickedElement = null) {
 }
 
 
-// --- [NEW] 사이드바 HTML 생성 함수 ---
-// (변경 사항 없음)
+// --- [MODIFIED] 사이드바 HTML 생성 함수 ---
+// 새로운 구조: 대분류 > 사례 (중분류/소분류 제거)
 function buildSidebarHTML(mainCategories) {
     let html = '';
 
     mainCategories.forEach(mainCat => {
         if (mainCat.type === 'main-category') {
+            // 대분류를 접을 수 있는 헤더로 변경
+            const submenuId = `submenu-${mainCat.id}`;
+            
             html += `
                 <li class="app-sidebar-main-category">
-                    <div class="sidebar-main-category-header">
-                        <i class="${mainCat.icon}"></i><span class="menu-text">${mainCat.name}</span>
+                    <div class="sidebar-main-category-header collapsed" data-bs-toggle="collapse" data-bs-target="#${submenuId}" aria-expanded="false">
+                        <div class="d-flex"><i class="${mainCat.icon}"></i><span class="menu-text">${mainCat.name}</span></div>
+                        <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
                     </div>
-                </li>
+                    <ul class="sidebar-submenu collapse" id="${submenuId}">
             `;
 
-            mainCat.subItems.forEach(midCat => {
-                if (midCat.type === 'mid-category') {
-                    const submenuId = `submenu-${midCat.id}`;
+            // cases 배열을 직접 처리
+            if (mainCat.cases && mainCat.cases.length > 0) {
+                mainCat.cases.forEach(caseItem => {
                     html += `
-                        <li>
-                            <div class="sidebar-mid-category-header collapsed" data-bs-toggle="collapse" data-bs-target="#${submenuId}" aria-expanded="false">
-                                <div class="d-flex"><i class="${midCat.icon}"></i><span class="menu-text">${midCat.name}</span></div>
-                                <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
-                            </div>
-                            <ul class="sidebar-submenu collapse" id="${submenuId}">
+                        <li class="app-sidebar-item">
+                            <a href="#${caseItem.id}" class="app-sidebar-link case-link" data-src="${caseItem.src}">
+                                <span class="menu-text">${caseItem.title}</span>
+                            </a>
+                        </li>
                     `;
-
-                    midCat.subItems.forEach(subCat => {
-                        if (subCat.type === 'sub-category') {
-                            const caseListId = `case-list-${subCat.id}`;
-                            html += `
-                                <li class="app-sidebar-item">
-                                    <div class="sidebar-sub-category-header collapsed" data-bs-toggle="collapse" data-bs-target="#${caseListId}" aria-expanded="false">
-                                        <div class="d-flex"><i class="${subCat.icon}"></i><span class="menu-text">${subCat.name}</span></div>
-                                        <i class="fas fa-chevron-down toggle-icon chevron-icon"></i>
-                                    </div>
-                                    <ul class="sidebar-case-list collapse" id="${caseListId}">
-                            `;
-
-                            subCat.cases.forEach(caseItem => {
-                                html += `
-                                    <li class="app-sidebar-item">
-                                        <a href="#${caseItem.id}" class="app-sidebar-link case-link" data-src="${caseItem.src}">
-                                            <span class="menu-text">${caseItem.title}</span>
-                                        </a>
-                                    </li>
-                                `;
-                            });
-                            html += `</ul></li>`; // sub-category 닫기
-                        }
-                    });
-                    html += `</ul></li>`; // mid-category 닫기
-                }
-            });
+                });
+            } else {
+                // 사례가 없는 경우
+                html += `
+                    <li class="app-sidebar-item">
+                        <span class="app-sidebar-link" style="padding-left: 40px; color: #888; font-style: italic; cursor: default;">
+                            <span class="menu-text">준비 중입니다.</span>
+                        </span>
+                    </li>
+                `;
+            }
+            
+            html += `</ul></li>`;
+            
         } else if (mainCat.type === 'main-category-spacer') {
              html += `<li class="app-sidebar-main-category-spacer" style="height: 20px; border-bottom: 1px solid #eee; margin: 10px 0;"></li>`;
         }
@@ -473,7 +449,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // --- [MODIFIED] 사이드바 메뉴 클릭 이벤트 리스너 ---
-    // (변경 사항 없음)
     if (sidebarMenuList) {
         sidebarMenuList.addEventListener('click', function(event) {
             // [MODIFIED] 클릭된 링크 요소를 변수에 저장
@@ -481,6 +456,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (targetLink && !targetLink.classList.contains('disabled')) {
                 event.preventDefault();
+                event.stopPropagation(); // [NEW] 이벤트 버블링 중단
                 
                 const srcUrl = targetLink.dataset.src;
                 const targetHash = targetLink.getAttribute('href');

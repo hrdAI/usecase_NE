@@ -38,10 +38,10 @@ function extractTextFromHTML(htmlString) {
 /**
  * [NEW HELPER] 개별 케이스의 HTML을 비동기로 가져와 텍스트를 추출합니다.
  * @param {object} caseItem - {id, title, src}
- * @param {object} categoryNames - { mainCategoryName, midCategoryName, subCategoryName }
+ * @param {string} mainCategoryName - 대분류 이름
  * @returns {Promise<object>} - 검색 데이터 객체 (allCasesData에 저장될 형식)
  */
-async function fetchAndExtractCaseContent(caseItem, categoryNames) {
+async function fetchAndExtractCaseContent(caseItem, mainCategoryName) {
     let htmlContent = "";
     
     try {
@@ -60,17 +60,15 @@ async function fetchAndExtractCaseContent(caseItem, categoryNames) {
         // 기본 키워드(제목 + 카테고리)만 사용합니다.
     }
 
-    // 기본 키워드 (JSON에 있던 제목 + 카테고리)
-    const baseKeywords = `${caseItem.title} ${categoryNames.mainCategoryName} ${categoryNames.midCategoryName} ${categoryNames.subCategoryName}`.toLowerCase();
+    // 기본 키워드 (JSON에 있던 제목 + 대분류)
+    const baseKeywords = `${caseItem.title} ${mainCategoryName}`.toLowerCase();
 
     // 최종 반환 객체
     return {
         id: caseItem.id,
         title: caseItem.title,
         src: caseItem.src,
-        mainCategoryName: categoryNames.mainCategoryName,
-        midCategoryName: categoryNames.midCategoryName,
-        subCategoryName: categoryNames.subCategoryName,
+        mainCategoryName: mainCategoryName,
         // [MODIFIED] 기본 키워드 + HTML 본문 키워드를 합칩니다.
         keywords: `${baseKeywords} ${htmlContent}`.replace(/\s+/g, ' ').trim()
     };
@@ -80,6 +78,7 @@ async function fetchAndExtractCaseContent(caseItem, categoryNames) {
 /**
  * [MODIFIED] main.js로부터 받은 JSON 데이터로 allCasesData 배열을 비동기로 구축합니다.
  * HTML 본문 내용을 fetch하여 검색어에 포함시킵니다.
+ * 새로운 구조: 대분류 > 사례 (중분류/소분류 제거)
  * @param {Array} mainCategories - cases.json의 mainCategories 배열
  * @returns {Promise<void>} - 검색 데이터 구축이 완료되면 resolve됩니다.
  */
@@ -91,25 +90,15 @@ async function buildSearchDataFromJSON(mainCategories) {
     
     try {
         mainCategories.forEach(mainCat => {
-            if (mainCat.type !== 'main-category' || !mainCat.subItems) return;
+            if (mainCat.type !== 'main-category' || !mainCat.cases) return;
             const mainCategoryName = mainCat.name;
 
-            mainCat.subItems.forEach(midCat => {
-                if (midCat.type !== 'mid-category' || !midCat.subItems) return;
-                const midCategoryName = midCat.name;
-
-                midCat.subItems.forEach(subCat => {
-                    if (subCat.type !== 'sub-category' || !subCat.cases) return;
-                    const subCategoryName = subCat.name;
-
-                    subCat.cases.forEach(caseItem => {
-                        // [MODIFIED] 직접 push하지 않고, fetch 프로미스를 배열에 추가합니다.
-                        fetchPromises.push(fetchAndExtractCaseContent(
-                            caseItem, 
-                            { mainCategoryName, midCategoryName, subCategoryName }
-                        ));
-                    });
-                });
+            // 대분류 바로 아래 cases 배열 처리
+            mainCat.cases.forEach(caseItem => {
+                fetchPromises.push(fetchAndExtractCaseContent(
+                    caseItem, 
+                    mainCategoryName
+                ));
             });
         });
 
@@ -131,10 +120,6 @@ async function buildSearchDataFromJSON(mainCategories) {
     } catch (error) {
         console.error("검색 데이터 구축 중 심각한 오류 발생:", error);
     }
-    
-    // 이 함수는 main.js에서 await로 호출되어야 합니다.
-    // (예: await buildSearchDataFromJSON(data.mainCategories);)
-    // (그런 다음 main.js에서 검색창을 활성화해야 함)
 }
 
 
@@ -283,7 +268,6 @@ function renderSearchResults(results, query) {
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="search-result-card h-100" data-href="#${item.id}" data-src="${item.src}">
                         <span class="badge bg-secondary">${item.mainCategoryName}</span>
-                        <span class="badge bg-info">${item.midCategoryName}</span>
                         
                         <h5 class="mt-2">${item.title}</h5>
                         
