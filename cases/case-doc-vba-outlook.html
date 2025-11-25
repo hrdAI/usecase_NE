@@ -1,25 +1,19 @@
 <style>
     /* 모든 이미지에 공통적으로 적용될 스타일 */
     .img-hover-zoom {
-        transition: transform 0.3s ease-in-out; /* 부드러운 전환 효과 */
+        transition: transform 0.3s ease-in-out;
     }
 
-    /* 마우스 오버 시 확대 */
     .img-hover-zoom:hover {
-        transform: scale(1.05); /* 5% 확대 (원하는 비율로 조절 가능) */
+        transform: scale(1.05);
     }
 
-    /* 이미지 크기 조절을 위한 스타일 추가 */
     .img-scaled-down {
-        /*
-          max-height를 height로 변경하여 컨테이너 높이의 90%를
-          강제로 차지하도록 수정합니다.
-        */
         height: 90%; 
-        width: 90%; /* 너비도 90%로 줄임 */
-        object-fit: cover; /* 비율 유지하며 채우기 */
-        display: block; /* margin auto 적용을 위해 블록 요소로 변경 */
-        margin: 0 auto; /* 가운데 정렬 */
+        width: 90%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
     }
 </style>
 
@@ -73,76 +67,161 @@
     
     <div class="alert alert-primary fw-bold text-center fs-5">➡️ 악성 메일 클릭 위험 감소 및 보안 의식 제고!</div>
 
-    <h4 class="mt-4">자동화 프로세스 이미지</h4>
-    <img src="assets/images/vba-case-outlook1.png" class="img-fluid img-hover-zoom" alt="자동화 프로세스 다이어그램">
+    <!-- ★★★ 비포/애프터 카드 ★★★ -->
+    <div class="before-after-container">
+        <!-- BEFORE 카드 -->
+        <div class="ba-card before">
+            <div class="ba-card-title">
+                <i class="fas fa-times-circle"></i> 자동화 이전
+            </div>
+            <div class="ba-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="ba-content">
+                <p><strong>📅 업무 상황:</strong></p>
+                <p class="ba-highlight">외부 메일 알림 없음</p>
+                
+                <p class="mt-3"><strong>👥 작업 방식:</strong></p>
+                <ul>
+                    <li>외부에서 메일 수신</li>
+                    <li>임직원이 메일 제목/발신자만 보고 습관적으로 클릭</li>
+                    <li>악성/피싱 메일 여부 판단 어려움</li>
+                    <li>외부 메일 구분 불가</li>
+                </ul>
+                
+                <p class="mt-3"><strong>⚠️ 문제점:</strong></p>
+                <ul>
+                    <li>악성 이메일 훈련 시 습관적 클릭 발생</li>
+                    <li>외부 메일 알림이 없어 보안 위험 노출</li>
+                    <li>악성 이메일 공격 꾸준히 증가</li>
+                    <li>피싱 메일 클릭 위험 상존</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- AFTER 카드 -->
+        <div class="ba-card after">
+            <div class="ba-card-title">
+                <i class="fas fa-check-circle"></i> 자동화 이후
+            </div>
+            <div class="ba-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="ba-content">
+                <p><strong>⚡ 업무 상황:</strong></p>
+                <p class="ba-highlight">자동 경고 알림 표시</p>
+                
+                <p class="mt-3"><strong>🤖 작업 방식:</strong></p>
+                <ul>
+                    <li>외부에서 메일 수신</li>
+                    <li>VBA가 발신자 도메인 자동 체크</li>
+                    <li>외부 도메인일 경우 경고 문구 자동 삽입</li>
+                    <li>임직원이 메일 열람 시 경고 즉시 인지</li>
+                </ul>
+                
+                <p class="mt-3"><strong>✅ 개선 효과:</strong></p>
+                <ul>
+                    <li><strong>악성 메일 클릭 위험 감소</strong></li>
+                    <li>보안 의식 제고</li>
+                    <li>습관적 클릭률 감소</li>
+                    <li>정보 유출 위험 사전 차단</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    
     <h3 class="mt-5">2. 개발배경</h3>
     <p><strong>[ 업무 상황 ]</strong><br> 악성 이메일 훈련 시 습관적으로 메일을 클릭하는 임직원이 발생했습니다.</p>
     <p><strong>[ 비효율 ]</strong><br> 악성 이메일 공격은 꾸준히 증가하고 있으며, 외부 메일에 대한 별도 알림이 없어 보안 위험에 지속적으로 노출되고 있었습니다.</p>
+    <p><strong>[ 확장 문제 ]</strong><br> 외부 메일을 구분할 방법이 없어 임직원의 보안 의식 강화가 어려웠고, 피싱 공격에 취약한 상태가 지속되었습니다.</p>
 
     <h3 class="mt-5">3. 개발과정</h3>
     <p><strong>[ VBA(Outlook)를 통한 외부 메일 자동 알림 ]</strong></p>
     
-    <h4 class="mt-4">VBA 자동화 핵심 로직</h4>
-    <aside class="alert">
-        <h5 class="alert-heading">💡 자동화 이전/이후 프로세스</h5>
-        <hr>
-        <code>
-[자동화 이전 (알림 없음)]
-1. 외부에서 메일 수신
-2. 임직원이 메일 제목/발신자만 보고 습관적으로 클릭
-3. 악성/피싱 메일 여부 판단 어려움
-4. (결과) 보안 관련 위험 증가
-
-[자동화 이후 (VBA 알림)]
-1. 외부에서 메일 수신
-2. (VBA 자동 실행) 메일 발신자 주소(도메인) 체크
-3. (VBA 자동 실행) 내부 도메인이 아닐 경우, 메일 본문 상단에
-   경고 문구 자동 삽입
-   (예: ⚠️ [주의] 이 메일은 외부에서 발신되었습니다.)
-4. (결과) 임직원이 메일 열람 시 경고 문구 즉시 인지
-        </code>
-    </aside>
+    <!-- ★★★ 2단 프로세스 다이어그램 ★★★ -->
+    <h4 class="mt-4">자동화 프로세스 비교</h4>
     
-    <h4 class="mt-4">VBA(Outlook) 매크로 실행 화면</h4>
-    <p>Outlook에 VBA 매크로를 설치하면, 외부 메일 수신 시 자동으로 본문에 경고 문구가 삽입됩니다.</p>
+    <div class="process-diagram-section">
+        <div class="process-comparison-row">
+            <!-- 자동화 이전 -->
+            <div class="process-box">
+                <div class="process-box-title">자동화 이전</div>
+                <div class="process-icons-container">
+                    <div class="process-icon-circle">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+                <div class="process-labels">
+                    <span class="process-label">외부 메일 수신</span>
+                    <span class="process-label">습관적 클릭</span>
+                    <span class="process-label">악성 판단 어려움</span>
+                    <span class="process-label">보안 위험</span>
+                </div>
+                <div class="process-description">
+                    <strong>문제점:</strong> 외부 메일 알림 없음
+                    <br>
+                    습관적 클릭, 보안 위험 노출
+                </div>
+            </div>
 
-    <div class="row d-flex align-items-stretch justify-content-center"> 
-        <div class="col-md-6 mb-3 text-center"> 
-            <img src="assets/images/vba-case-outlook-code.png" class="img-scaled-down img-hover-zoom" alt="Outlook VBA 코드 스크린샷">
-        </div>
-        <div class="col-md-6 mb-3 text-center"> 
-            <img src="assets/images/vba-case-outlook-result.png" class="img-scaled-down img-hover-zoom" alt="외부 메일 알림 적용 화면">
+            <!-- 자동화 이후 -->
+            <div class="process-box">
+                <div class="process-box-title">자동화 이후</div>
+                <div class="process-icons-container">
+                    <div class="process-icon-circle simple">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                </div>
+                <div class="process-labels">
+                    <span class="process-label simple">VBA 자동 실행</span>
+                    <span class="process-label simple">도메인 체크 → 경고 삽입</span>
+                </div>
+                <div class="process-description">
+                    <strong>개선 효과:</strong> 자동 경고 표시
+                    <br>
+                    <strong style="color: #2ecc71;">보안 의식 제고, 클릭 위험 감소</strong>
+                </div>
+            </div>
         </div>
     </div>
 
-
-    <h3 class="mt-5">4. 이슈 발생 및 해결 방안</h3>
-    <p class="text-muted small"><em>(이슈 발생 및 해결 방안은 현재 수집 중이며, 추후 추가될 예정입니다.)</em></p>
-    <ul>
-        <li><strong>(이슈 사항 1)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
-        <li><strong>(이슈 사항 2)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
-    </ul>
-
-
-    <h3 class="mt-5">5. 도입 성과 상세</h3>
+    <h3 class="mt-5">4. 도입 성과 상세</h3>
     <p>VBA 기반 자동화를 통해 전사적 보안 의식을 강화하고 위험을 감소시켰습니다.</p>
     
     <h5 class="mt-4">업무 환경 개선</h5>
     <ul class="list-unstyled">
-        <li><i class="fas fa-minus-circle text-danger me-2"></i> <strong>기존 (알림 없음):</strong> 임직원이 외부 메일을 인지할 방법이 없어 보안 위험에 노출됨.</li>
-        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>개선 (자동화):</strong> 모든 외부 메일에 경고 알림이 자동 표시되어 임직원의 경각심 고취.</li>
+        <li><i class="fas fa-minus-circle text-danger me-2"></i> <strong>기존 (알림 없음):</strong> 임직원이 외부 메일을 인지할 방법이 없어 보안 위험에 노출됨</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>개선 (자동화):</strong> 모든 외부 메일에 경고 알림이 자동 표시되어 임직원의 경각심 고취</li>
     </ul>
 
     <h5 class="mt-4">추가 개선 효과</h5>
     <ul class="list-unstyled">
         <li><i class="fas fa-check-circle text-success me-2"></i>악성 이메일 훈련 시 습관적 클릭률 감소</li>
         <li><i class="fas fa-check-circle text-success me-2"></i>피싱 메일로 인한 정보 유출 위험 사전 차단</li>
-        <li><i class("fas fa-check-circle text-success me-2")></i>전사적 보안 의식 강화</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>전사적 보안 의식 강화</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>보안 사고 예방 효과</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>개인정보 보호 강화</li>
     </ul>
 
-    <h3 class="mt-5">6. 첨부파일</h3>
+    <h3 class="mt-5">5. 첨부파일</h3>
     <p>아래 링크를 클릭하여 자동화 관련 파일을 다운로드할 수 있습니다.</p>
     
     <ul class="list-unstyled">

@@ -1,38 +1,33 @@
 <style>
     /* 모든 이미지에 공통적으로 적용될 스타일 */
     .img-hover-zoom {
-        transition: transform 0.3s ease-in-out; /* 부드러운 전환 효과 */
+        transition: transform 0.3s ease-in-out;
     }
 
-    /* 마우스 오버 시 확대 */
     .img-hover-zoom:hover {
-        transform: scale(1.05); /* 5% 확대 (원하는 비율로 조절 가능) */
+        transform: scale(1.05);
     }
 
-    /* 이미지 크기 조절을 위한 스타일 추가 */
     .img-scaled-down {
-        /*
-          max-height를 height로 변경하여 컨테이너 높이의 90%를
-          강제로 차지하도록 수정합니다.
-        */
         height: 90%; 
-        width: 90%; /* 너비도 90%로 줄임 */
-        object-fit: cover; /* 비율 유지하며 채우기 */
-        display: block; /* margin auto 적용을 위해 블록 요소로 변경 */
-        margin: 0 auto; /* 가운데 정렬 */
+        width: 90%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
     }
 </style>
 
 <div id="case-doc-python-crawl" class="case-card case-content active">
     <h2><i class="fab fa-python"></i> [데이터 수집] Python 활용 네이버 블로그/카페 고객 반응 웹크롤링 및 보고서 자동화</h2>
-    <p class="lead"><span class="badge me-2">작성자: (마케팅팀) (가상)</span><span class="badge">부문: 데이터 수집/분석 자동화</span></p>
+    <p class="lead"><span class="badge me-2">개발: (마케팅팀) (가상)</span><span class="badge">부문: 데이터 수집/분석 자동화</span></p>
 
+    <!-- 1. 구현 사례 기본 정보 -->
     <div class="alert alert-secondary p-3 mb-4">
         <ul class="list-unstyled mb-0" style="font-size: 0.95rem;">
             <li class="mb-2">1️⃣ <strong>구현 사례 :</strong> [데이터 수집] Python 활용 네이버 블로그/카페 고객 반응 웹크롤링 및 보고서 자동화</li>
             <li class="mb-2">2️⃣ <strong>활용 부서 :</strong> (마케팅팀) (가상)</li>
             <li class="mb-2">3️⃣ <strong>구현 도구 :</strong> Python</li>
-            <li class="mb-2">4️⃣ <strong>활용 기술 :</strong> Python, 웹 크롤링, 데이터 요약, 보고서 자동 생성</li>
+            <li class="mb-2">4️⃣ <strong>활용 기술 :</strong> Python, 웹 크롤링, 데이터 수집/분석, 보고서 자동화</li>
         </ul>
     </div>
 
@@ -69,64 +64,148 @@
     </aside>
 
     <h3>1. 성과요약</h3>
-    <p>Python 자동화를 통해, 기존 **2일(약 16시간) 소요되던 '아이챌린지' 고객 반응 수집 및 보고서 작성 업무를 3시간으로 단축**시켰습니다. 또한, 담당자 부재로 공백이었던 업무를 재개하고 안정적으로 유지할 수 있게 되었습니다.</p>
+    <p>Python 자동화를 통해 <strong>2일(약 16시간) 소요되던 '아이챌린지' 고객 반응 수집 및 보고서 작성 업무를 3시간으로 단축</strong>시켰습니다. 또한, 담당자 부재로 공백이었던 업무를 재개하고 안정적으로 유지할 수 있게 되었습니다.</p>
     
     <div class="alert alert-primary fw-bold text-center fs-5">➡️ 업무 시간 80% 이상 단축! (2일 → 3시간)</div>
 
-    <h4 class="mt-4">자동화 프로세스 이미지</h4>
-    <img src="assets/images/python-case-crawl1.png" class="img-fluid img-hover-zoom" alt="자동화 프로세스 다이어그램">
+    <!-- ★★★ 비포/애프터 카드 ★★★ -->
+    <div class="before-after-container">
+        <!-- BEFORE 카드 -->
+        <div class="ba-card before">
+            <div class="ba-card-title">
+                <i class="fas fa-times-circle"></i> 자동화 이전
+            </div>
+            <div class="ba-icon">
+                <i class="fas fa-user-clock"></i>
+            </div>
+            <div class="ba-content">
+                <p><strong>📅 소요 시간:</strong></p>
+                <p class="ba-highlight">약 2일 (16시간)</p>
+                
+                <p class="mt-3"><strong>👥 작업 방식:</strong></p>
+                <ul>
+                    <li>매월 웹사이트(네이버 블로그/카페)에 접속</li>
+                    <li>'아이챌린지' 등 키워드로 수십 개의 게시글 일일이 확인</li>
+                    <li>관련 내용 수동 요약</li>
+                    <li>보고서 형식으로 수기 작성</li>
+                </ul>
+                
+                <p class="mt-3"><strong>⚠️ 문제점:</strong></p>
+                <ul>
+                    <li>담당자 부재 시 업무 중단</li>
+                    <li>시간 소모 과다 (2일)</li>
+                    <li>휴먼 에러 발생</li>
+                    <li>업무 공백 상태</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- AFTER 카드 -->
+        <div class="ba-card after">
+            <div class="ba-card-title">
+                <i class="fas fa-check-circle"></i> 자동화 이후
+            </div>
+            <div class="ba-icon">
+                <i class="fab fa-python"></i>
+            </div>
+            <div class="ba-content">
+                <p><strong>⚡ 소요 시간:</strong></p>
+                <p class="ba-highlight">약 3시간</p>
+                
+                <p class="mt-3"><strong>🤖 작업 방식:</strong></p>
+                <ul>
+                    <li>Python 스크립트 실행</li>
+                    <li>미리 설정된 검색어로 자동 검색</li>
+                    <li>관련 게시글 자동 수집 (크롤링)</li>
+                    <li>수집된 내용 자동 요약</li>
+                    <li>보고서 파일 자동 작성</li>
+                </ul>
+                
+                <p class="mt-3"><strong>✅ 개선 효과:</strong></p>
+                <ul>
+                    <li><strong>80% 시간 단축 (2일 → 3시간)</strong></li>
+                    <li>담당자 없어도 실행 가능</li>
+                    <li>휴먼 에러 제거</li>
+                    <li>안정적 업무 유지</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    
     <h3 class="mt-5">2. 개발배경</h3>
     <p><strong>[ 업무 상황 ]</strong><br> 네이버 블로그 콘텐츠를 수집하여 '아이챌린지' 고객 반응을 분석하는 작업이 필요했습니다.</p>
     <p><strong>[ 비효율 ]</strong><br> 인력 구조가 바뀌면서 담당자가 없어 해당 업무가 공백 상태였습니다. 또한, 기존 방식은 카페나 블로그에 직접 접속해 일일이 검색하고 정리하는 등 많은 시간이 소요되었습니다.</p>
+    <p><strong>[ 확장 문제 ]</strong><br> 담당자 부재 시 업무가 완전히 중단되며, 2일씩 소요되는 반복 작업으로 인한 업무 부담이 컸습니다.</p>
 
     <h3 class="mt-5">3. 개발과정</h3>
     <p><strong>[ Python을 통한 크롤링 및 보고서 자동화 ]</strong></p>
     
-    <h4 class="mt-4">Python 자동화 핵심 로직</h4>
-    <aside class="alert">
-        <h5 class="alert-heading">💡 자동화 이전/이후 프로세스</h5>
-        <hr>
-        <code>
-[자동화 이전 (수작업)]
-1. 매월 웹사이트(네이버 블로그/카페)에 접속
-2. '아이챌린지' 등 키워드로 수십 개의 게시글을 일일이 확인
-3. 관련 내용 수동 요약
-4. 보고서 형식으로 수기 작성
-(담당자 부재 시 업무 중단)
-
-[자동화 이후 (Python)]
-1. (Python 실행) 미리 설정된 검색어로 네이버 블로그/카페 자동 검색
-2. (Python 실행) 관련 게시글 자동 수집 (크롤링)
-3. (Python 실행) 수집된 내용 자동 요약
-4. (Python 실행) 지정된 보고서 형식(Word, Excel 등)으로 자동 작성
-(담당자 없어도 스크립트 실행만으로 업무 유지 가능)
-        </code>
-    </aside>
+    <!-- ★★★ 2단 프로세스 다이어그램 ★★★ -->
+    <h4 class="mt-4">자동화 프로세스 비교</h4>
     
-    <h4 class="mt-4">Python 스크립트 실행 및 결과</h4>
-    <p>스크립트를 실행하면 설정된 키워드로 크롤링을 진행하고, 결과물이 보고서 파일로 자동 생성됩니다.</p>
+    <div class="process-diagram-section">
+        <div class="process-comparison-row">
+            <!-- 자동화 이전 -->
+            <div class="process-box">
+                <div class="process-box-title">자동화 이전</div>
+                <div class="process-icons-container">
+                    <div class="process-icon-circle">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-clipboard"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                </div>
+                <div class="process-labels">
+                    <span class="process-label">웹사이트 접속</span>
+                    <span class="process-label">키워드 검색</span>
+                    <span class="process-label">수동 요약</span>
+                    <span class="process-label">수기 작성</span>
+                </div>
+                <div class="process-description">
+                    <strong>소요 시간:</strong> 2일 (약 16시간)
+                    <br>
+                    담당자 부재 시 업무 중단
+                </div>
+            </div>
 
-    <div class="row d-flex align-items-stretch justify-content-center"> 
-        <div class="col-md-6 mb-3 text-center"> 
-            <img src="assets/images/python-case-crawl-code.png" class="img-scaled-down img-hover-zoom" alt="Python 코드 스크린샷">
-        </div>
-        <div class="col-md-6 mb-3 text-center"> 
-            <img src="assets/images/python-case-crawl-report.png" class="img-scaled-down img-hover-zoom" alt="자동 생성된 보고서 화면">
+            <!-- 자동화 이후 -->
+            <div class="process-box">
+                <div class="process-box-title">자동화 이후</div>
+                <div class="process-icons-container">
+                    <div class="process-icon-circle simple">
+                        <i class="fab fa-python"></i>
+                    </div>
+                </div>
+                <div class="process-labels">
+                    <span class="process-label simple">Python 스크립트 실행</span>
+                    <span class="process-label simple">자동 크롤링 → 요약 → 보고서 생성</span>
+                </div>
+                <div class="process-description">
+                    <strong>소요 시간:</strong> 3시간
+                    <br>
+                    <strong style="color: #2ecc71;">80% 시간 단축, 담당자 없어도 가능</strong>
+                </div>
+            </div>
         </div>
     </div>
 
-
-    <h3 class="mt-5">4. 이슈 발생 및 해결 방안</h3>
-    <p class="text-muted small"><em>(이슈 발생 및 해결 방안은 현재 수집 중이며, 추후 추가될 예정입니다.)</em></p>
-    <ul>
-        <li><strong>(이슈 사항 1)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
-        <li><strong>(이슈 사항 2)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
-    </ul>
-
-
-    <h3 class="mt-5">5. 도입 성과 상세</h3>
+    <h3 class="mt-5">4. 도입 성과 상세</h3>
     <p>Python 기반 자동화를 통해 고객 반응 조사 업무를 복원하고 효율화했습니다.</p>
     
     <h5 class="mt-4">업무 시간 비교</h5>
@@ -138,10 +217,13 @@
     <h5 class="mt-4">추가 개선 효과</h5>
     <ul class="list-unstyled">
         <li><i class="fas fa-check-circle text-success me-2"></i>별도 마케팅 담당자가 없어도 해당 업무가 누락되지 않고 유지 가능</li>
-        <li><i class="fas fa-check-circle text-success me-2"></i>**다른 업무로 확장 가능 툴 마련:** 고객반응조사 외 비슷한 형태의 웹크롤링 데이터 기반 보고서(예: 캐릭터 현황 조사, 회사 특정 제품의 고객 반응 조사 등) 작성 시 응용 가능</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i><strong>다른 업무로 확장 가능 툴 마련:</strong> 고객반응조사 외 비슷한 형태의 웹크롤링 데이터 기반 보고서(예: 캐릭터 현황 조사, 회사 특정 제품의 고객 반응 조사 등) 작성 시 응용 가능</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>휴먼 에러 제거</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>일관된 보고서 품질 유지</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>업무 공백 해소</li>
     </ul>
 
-    <h3 class="mt-5">6. 첨부파일</h3>
+    <h3 class="mt-5">5. 첨부파일</h3>
     <p>아래 링크를 클릭하여 자동화 관련 파일을 다운로드할 수 있습니다.</p>
     
     <ul class="list-unstyled">

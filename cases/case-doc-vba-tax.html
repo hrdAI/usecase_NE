@@ -1,25 +1,19 @@
 <style>
     /* 모든 이미지에 공통적으로 적용될 스타일 */
     .img-hover-zoom {
-        transition: transform 0.3s ease-in-out; /* 부드러운 전환 효과 */
+        transition: transform 0.3s ease-in-out;
     }
 
-    /* 마우스 오버 시 확대 */
     .img-hover-zoom:hover {
-        transform: scale(1.05); /* 5% 확대 (원하는 비율로 조절 가능) */
+        transform: scale(1.05);
     }
 
-    /* 이미지 크기 조절을 위한 스타일 추가 */
     .img-scaled-down {
-        /*
-          max-height를 height로 변경하여 컨테이너 높이의 90%를
-          강제로 차지하도록 수정합니다.
-        */
         height: 90%; 
-        width: 90%; /* 너비도 90%로 줄임 */
-        object-fit: cover; /* 비율 유지하며 채우기 */
-        display: block; /* margin auto 적용을 위해 블록 요소로 변경 */
-        margin: 0 auto; /* 가운데 정렬 */
+        width: 90%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
     }
 </style>
 
@@ -69,77 +63,167 @@
     </aside>
 
     <h3>1. 성과요약</h3>
-    <p>VBA 자동화를 통해, 매월 반복적으로 발생하던 '마감 전자세금계산서 이메일 발송' 업무를 완전 자동화하여, 난이도가 낮고 반복적인 수작업에 소요되던 시간을 획기적으로 단축시켰습니다.</p>
+    <p>VBA 자동화를 통해 매월 반복적으로 발생하던 <strong>'마감 전자세금계산서 이메일 발송' 업무를 완전 자동화</strong>하여, 난이도가 낮고 반복적인 수작업에 소요되던 시간을 획기적으로 단축시켰습니다.</p>
     
     <div class="alert alert-primary fw-bold text-center fs-5">➡️ 반복적인 세금계산서 발송 업무 완전 자동화!</div>
 
-    <h4 class="mt-4">자동화 프로세스 이미지</h4>
-    <img src="assets/images/vba-case-tax1.png" class="img-fluid img-hover-zoom" alt="자동화 프로세스 다이어그램">
+    <!-- ★★★ 비포/애프터 카드 ★★★ -->
+    <div class="before-after-container">
+        <!-- BEFORE 카드 -->
+        <div class="ba-card before">
+            <div class="ba-card-title">
+                <i class="fas fa-times-circle"></i> 자동화 이전
+            </div>
+            <div class="ba-icon">
+                <i class="fas fa-user-clock"></i>
+            </div>
+            <div class="ba-content">
+                <p><strong>📅 소요 시간:</strong></p>
+                <p class="ba-highlight">매월 반복적 수작업</p>
+                
+                <p class="mt-3"><strong>👥 작업 방식:</strong></p>
+                <ul>
+                    <li>국세청 자료의 메일 주소 확인</li>
+                    <li>수작업으로 담당자 확인</li>
+                    <li>수작업으로 공급가액, 세액 등 작성</li>
+                    <li>메일 본문 개별 작성</li>
+                    <li>담당자별 메일 수동 발송</li>
+                </ul>
+                
+                <p class="mt-3"><strong>⚠️ 문제점:</strong></p>
+                <ul>
+                    <li>난이도가 낮고 반복적인 업무</li>
+                    <li>매월 많은 시간 할애</li>
+                    <li>휴먼 에러 (금액, 담당자 오류) 가능성</li>
+                    <li>마감 시간 준수 어려움</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- AFTER 카드 -->
+        <div class="ba-card after">
+            <div class="ba-card-title">
+                <i class="fas fa-check-circle"></i> 자동화 이후
+            </div>
+            <div class="ba-icon">
+                <i class="fas fa-file-excel"></i>
+            </div>
+            <div class="ba-content">
+                <p><strong>⚡ 소요 시간:</strong></p>
+                <p class="ba-highlight">매크로 실행 후 자동 발송</p>
+                
+                <p class="mt-3"><strong>🤖 작업 방식:</strong></p>
+                <ul>
+                    <li>국세청 전자세금계산서 다운로드 (엑셀)</li>
+                    <li>VBA 매크로 실행 버튼 클릭</li>
+                    <li>담당자, 메일 주소, 금액 자동 취합</li>
+                    <li>담당자별 메일 본문 자동 생성</li>
+                    <li>Outlook을 통해 일괄 메일 자동 발송</li>
+                </ul>
+                
+                <p class="mt-3"><strong>✅ 개선 효과:</strong></p>
+                <ul>
+                    <li><strong>반복 업무 완전 자동화</strong></li>
+                    <li>휴먼 에러 방지</li>
+                    <li>마감 시간 정확히 준수</li>
+                    <li>업무 시간 대폭 단축</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    
     <h3 class="mt-5">2. 개발배경</h3>
     <p><strong>[ 업무 상황 ]</strong><br> 매월 마감 전자세금계산서 이메일 발송 업무가 필요했습니다.</p>
     <p><strong>[ 비효율 ]</strong><br> 해당 업무는 난이도가 낮고 반복적이며 비용이 발생함에도 불구하고, 담당자가 국세청 자료를 보고 수작업으로 담당자를 확인하고 금액을 작성하여 메일을 발송하는 데 많은 시간을 할애하고 있었습니다.</p>
+    <p><strong>[ 확장 문제 ]</strong><br> 수작업으로 인한 휴먼 에러(금액 오류, 담당자 오류)가 발생할 수 있으며, 마감 시간을 준수하기 위한 부담이 매월 반복되었습니다.</p>
 
     <h3 class="mt-5">3. 개발과정</h3>
     <p><strong>[ VBA를 통한 세금계산서 메일 발송 자동화 ]</strong></p>
     
-    <h4 class="mt-4">VBA 자동화 핵심 로직</h4>
-    <aside class="alert">
-        <h5 class="alert-heading">💡 자동화 이전/이후 프로세스</h5>
-        <hr>
-        <code>
-[자동화 이전 (수작업)]
-1. 국세청 자료의 메일 주소 확인
-2. 수작업으로 담당자 확인
-3. 수작업으로 공급가액, 세액 등 작성 후 메일 발송
-
-[자동화 이후 (VBA)]
-1. 매월 마감 시, 국세청 전자세금계산서 다운로드 (엑셀)
-2. (VBA 실행) 엑셀 데이터를 기반으로 담당자, 메일 주소, 금액 자동 취합
-3. (VBA 실행) 담당자별 메일 본문 자동 생성
-4. (VBA 실행) Outlook을 통해 해당 직원에게 일괄 메일 자동 발송
-        </code>
-    </aside>
+    <!-- ★★★ 2단 프로세스 다이어그램 ★★★ -->
+    <h4 class="mt-4">자동화 프로세스 비교</h4>
     
-    <h4 class="mt-4">VBA(Excel/Outlook) 매크로 실행 화면</h4>
-    <p>매월 다운로드한 국세청 엑셀 파일을 준비하고 매크로를 실행하면, 담당자별 메일이 자동으로 발송됩니다.</p>
+    <div class="process-diagram-section">
+        <div class="process-comparison-row">
+            <!-- 자동화 이전 -->
+            <div class="process-box">
+                <div class="process-box-title">자동화 이전</div>
+                <div class="process-icons-container">
+                    <div class="process-icon-circle">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                </div>
+                <div class="process-labels">
+                    <span class="process-label">메일 주소 확인</span>
+                    <span class="process-label">담당자 확인</span>
+                    <span class="process-label">금액 수기 작성</span>
+                    <span class="process-label">메일 수동 발송</span>
+                </div>
+                <div class="process-description">
+                    <strong>소요 시간:</strong> 매월 반복 수작업
+                    <br>
+                    휴먼 에러 가능, 마감 시간 부담
+                </div>
+            </div>
 
-    <div class="row d-flex align-items-stretch justify-content-center"> 
-        <div class="col-md-6 mb-3 text-center"> 
-            <img src="assets/images/vba-case-tax-code.png" class="img-scaled-down img-hover-zoom" alt="Excel VBA 코드 스크린샷">
-        </div>
-        <div class="col-md-6 mb-3 text-center"> 
-            <img src="assets/images/vba-case-tax-result.png" class="img-scaled-down img-hover-zoom" alt="자동 발송된 메일 화면">
+            <!-- 자동화 이후 -->
+            <div class="process-box">
+                <div class="process-box-title">자동화 이후</div>
+                <div class="process-icons-container">
+                    <div class="process-icon-circle simple">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                </div>
+                <div class="process-labels">
+                    <span class="process-label simple">VBA 매크로 실행</span>
+                    <span class="process-label simple">자동 취합 → 생성 → 발송</span>
+                </div>
+                <div class="process-description">
+                    <strong>소요 시간:</strong> 자동 실행
+                    <br>
+                    <strong style="color: #2ecc71;">에러 방지, 정시 발송 보장</strong>
+                </div>
+            </div>
         </div>
     </div>
 
-
-    <h3 class="mt-5">4. 이슈 발생 및 해결 방안</h3>
-    <p class="text-muted small"><em>(이슈 발생 및 해결 방안은 현재 수집 중이며, 추후 추가될 예정입니다.)</em></p>
-    <ul>
-        <li><strong>(이슈 사항 1)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
-        <li><strong>(이슈 사항 2)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
-    </ul>
-
-
-    <h3 class="mt-5">5. 도입 성과 상세</h3>
+    <h3 class="mt-5">4. 도입 성과 상세</h3>
     <p>VBA 기반 자동화를 통해 세금계산서 발송 업무를 자동화하고 휴먼 에러를 방지했습니다.</p>
     
     <h5 class="mt-4">업무 시간 비교</h5>
     <ul class="list-unstyled">
-        <li><i class="fas fa-minus-circle text-danger me-2"></i> <strong>기존 (수작업):</strong> 월 (시간 확인 중) 소요 (담당자 확인, 메일 수기 작성 및 발송)</li>
-        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>개선 (자동화):</strong> 월 (시간 확인 중) 소요 (자동 실행 및 모니터링)</li>
+        <li><i class="fas fa-minus-circle text-danger me-2"></i> <strong>기존 (수작업):</strong> 매월 반복적 수작업 (담당자 확인, 메일 수기 작성 및 발송)</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>개선 (자동화):</strong> 매크로 실행 후 자동 발송 (모니터링만 필요)</li>
     </ul>
 
     <h5 class="mt-4">추가 개선 효과</h5>
     <ul class="list-unstyled">
         <li><i class="fas fa-check-circle text-success me-2"></i>난이도가 낮고 반복적인 발송 업무에서 해방</li>
         <li><i class="fas fa-check-circle text-success me-2"></i>수작업 작성으로 인한 휴먼 에러 (금액, 담당자 오류) 방지</li>
-        <li><i class("fas fa-check-circle text-success me-2")></i>매월 마감 업무 시간 단축 및 정시 발송 가능</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>매월 마감 업무 시간 단축 및 정시 발송 가능</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>일관된 메일 형식 유지</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>담당자 부재 시에도 발송 가능</li>
     </ul>
 
-    <h3 class="mt-5">6. 첨부파일</h3>
+    <h3 class="mt-5">5. 첨부파일</h3>
     <p>아래 링크를 클릭하여 자동화 관련 파일을 다운로드할 수 있습니다.</p>
     
     <ul class="list-unstyled">

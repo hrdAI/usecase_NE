@@ -1,25 +1,19 @@
 <style>
     /* 모든 이미지에 공통적으로 적용될 스타일 */
     .img-hover-zoom {
-        transition: transform 0.3s ease-in-out; /* 부드러운 전환 효과 */
+        transition: transform 0.3s ease-in-out;
     }
 
-    /* 마우스 오버 시 확대 */
     .img-hover-zoom:hover {
-        transform: scale(1.05); /* 5% 확대 (원하는 비율로 조절 가능) */
+        transform: scale(1.05);
     }
 
-    /* 이미지 크기 조절을 위한 스타일 추가 */
     .img-scaled-down {
-        /*
-          max-height를 height로 변경하여 컨테이너 높이의 90%를
-          강제로 차지하도록 수정합니다.
-        */
         height: 90%; 
-        width: 90%; /* 너비도 90%로 줄임 */
-        object-fit: cover; /* 비율 유지하며 채우기 */
-        display: block; /* margin auto 적용을 위해 블록 요소로 변경 */
-        margin: 0 auto; /* 가운데 정렬 */
+        width: 90%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
     }
 </style>
 
@@ -69,64 +63,149 @@
     </aside>
 
     <h3>1. 성과요약</h3>
-    <p>VBA 자동화를 통해, 워드 파일을 수동으로 복사/정리하여 PPT, 어휘 리스트 등을 만들던 단순 작업을 자동화했습니다. 이를 통해 <strong>외주 작업 범위를 축소(전체 발주 → 검수만 요청)하여 비용 절감을 달성</strong>했습니다.</p>
+    <p>VBA 자동화를 통해 워드 파일을 수동으로 복사/정리하여 PPT, 어휘 리스트 등을 만들던 단순 작업을 자동화했습니다. 이를 통해 <strong>외주 작업 범위를 축소(전체 발주 → 검수만 요청)하여 비용 절감을 달성</strong>했습니다.</p>
     
     <div class="alert alert-primary fw-bold text-center fs-5">➡️ 외주 발주 비용 절감 효과!</div>
 
-    <h4 class="mt-4">자동화 프로세스 이미지</h4>
-    <img src="assets/images/vba-case-ppt1.png" class="img-fluid img-hover-zoom" alt="자동화 프로세스 다이어그램">
+    <!-- ★★★ 비포/애프터 카드 ★★★ -->
+    <div class="before-after-container">
+        <!-- BEFORE 카드 -->
+        <div class="ba-card before">
+            <div class="ba-card-title">
+                <i class="fas fa-times-circle"></i> 자동화 이전
+            </div>
+            <div class="ba-icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="ba-content">
+                <p><strong>📅 비용:</strong></p>
+                <p class="ba-highlight">전체 작업물 외주 비용</p>
+                
+                <p class="mt-3"><strong>👥 작업 방식:</strong></p>
+                <ul>
+                    <li>외주자에게 원본 워드 파일 전달</li>
+                    <li>외주자가 워드 파일 내용 수동 복사/정리</li>
+                    <li>워크북, 어휘 리스트, PPT 자료 수동 제작</li>
+                    <li>전체 작업물에 대한 비용 청구</li>
+                </ul>
+                
+                <p class="mt-3"><strong>⚠️ 문제점:</strong></p>
+                <ul>
+                    <li>단순 작업을 외주 발주</li>
+                    <li>전체 공정 비용 발생</li>
+                    <li>외부 의존도 높음</li>
+                    <li>품질 검수 필요</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- AFTER 카드 -->
+        <div class="ba-card after">
+            <div class="ba-card-title">
+                <i class="fas fa-check-circle"></i> 자동화 이후
+            </div>
+            <div class="ba-icon">
+                <i class="fas fa-file-word"></i>
+            </div>
+            <div class="ba-content">
+                <p><strong>⚡ 비용:</strong></p>
+                <p class="ba-highlight">검수 비용만 발생</p>
+                
+                <p class="mt-3"><strong>🤖 작업 방식:</strong></p>
+                <ul>
+                    <li>원본 워드 파일 준비</li>
+                    <li>VBA 매크로 실행</li>
+                    <li>워드 파일 내 텍스트 자동 취합</li>
+                    <li>어휘 리스트 자동 추출 (엑셀)</li>
+                    <li>PPT 자료 자동 생성</li>
+                    <li>자동 생성된 자료의 검수만 외주 요청</li>
+                </ul>
+                
+                <p class="mt-3"><strong>✅ 개선 효과:</strong></p>
+                <ul>
+                    <li><strong>외주 비용 절감</strong></li>
+                    <li>단순 작업 제거</li>
+                    <li>내부 작업 속도 향상</li>
+                    <li>일관된 품질 유지</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    
     <h3 class="mt-5">2. 개발배경</h3>
     <p><strong>[ 업무 상황 ]</strong><br> 주간지 교재 제작에 필요한 워크북, 어휘 리스트, PPT 자료 제작이 필요했습니다.</p>
     <p><strong>[ 비효율 ]</strong><br> 이를 위해 워드 파일을 일일이 복사 및 정리하는 단순작업이 발생했으며, 기존에는 이 작업 자체를 외주자에게 발주하여 비용이 발생했습니다.</p>
+    <p><strong>[ 확장 문제 ]</strong><br> 단순 작업임에도 외주 비용이 지속적으로 발생하며, 외부 의존도가 높아 내부 역량 강화가 어려웠습니다.</p>
 
     <h3 class="mt-5">3. 개발과정</h3>
     <p><strong>[ VBA를 통한 Word 자료 자동 취합 및 변환 ]</strong></p>
     
-    <h4 class="mt-4">VBA 자동화 핵심 로직</h4>
-    <aside class="alert">
-        <h5 class="alert-heading">💡 자동화 이전/이후 프로세스</h5>
-        <hr>
-        <code>
-[자동화 이전 (외주 발주)]
-1. (발주) 외주자에게 원본 워드 파일 전달
-2. (외주) 외주자가 워드 파일을 열어 수동으로 내용 복사/정리
-3. (외주) 워크북, 어휘 리스트, PPT 자료 수동 제작
-4. (비용) 전체 작업물에 대한 비용 청구
-
-[자동화 이후 (VBA)]
-1. (내부) 원본 워드 파일 준비
-2. (VBA 실행) 매크로가 워드 파일 내 텍스트 자동 취합
-3. (VBA 실행) 어휘 리스트 자동 추출
-4. (VBA 실행) PPT 자료 자동 생성 (템플릿에 맞춰 자동 삽입)
-5. (발주) 자동 생성된 자료의 '검수'만 외주 요청
-6. (비용) 검수 비용만 청구 (비용 절감)
-        </code>
-    </aside>
+    <!-- ★★★ 2단 프로세스 다이어그램 ★★★ -->
+    <h4 class="mt-4">자동화 프로세스 비교</h4>
     
-    <h4 class="mt-4">VBA 매크로 실행 화면</h4>
-    <p>매크로를 실행하면, 원본 워드 파일의 내용을 읽어와 PPT와 어휘 리스트(엑셀)를 자동으로 생성합니다.</p>
+    <div class="process-diagram-section">
+        <div class="process-comparison-row">
+            <!-- 자동화 이전 -->
+            <div class="process-box">
+                <div class="process-box-title">자동화 이전</div>
+                <div class="process-icons-container">
+                    <div class="process-icon-circle">
+                        <i class="fas fa-share"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-copy"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                </div>
+                <div class="process-labels">
+                    <span class="process-label">외주 발주</span>
+                    <span class="process-label">외주 작업</span>
+                    <span class="process-label">수동 제작</span>
+                    <span class="process-label">비용 청구</span>
+                </div>
+                <div class="process-description">
+                    <strong>비용:</strong> 전체 작업 비용
+                    <br>
+                    단순 작업 외주, 외부 의존도 높음
+                </div>
+            </div>
 
-    <div class="row d-flex align-items-stretch justify-content-center"> 
-        <div class="col-md-6 mb-3 text-center"> 
-            <img src="assets/images/vba-case-ppt-code.png" class="img-scaled-down img-hover-zoom" alt="VBA 코드 스크린샷">
-        </div>
-        <div class="col-md-6 mb-3 text-center"> 
-            <img src="assets/images/vba-case-ppt-result.png" class="img-scaled-down img-hover-zoom" alt="자동 생성된 PPT 화면">
+            <!-- 자동화 이후 -->
+            <div class="process-box">
+                <div class="process-box-title">자동화 이후</div>
+                <div class="process-icons-container">
+                    <div class="process-icon-circle simple">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                </div>
+                <div class="process-labels">
+                    <span class="process-label simple">VBA 매크로 실행</span>
+                    <span class="process-label simple">자동 취합 → 변환 → 추출</span>
+                </div>
+                <div class="process-description">
+                    <strong>비용:</strong> 검수 비용만
+                    <br>
+                    <strong style="color: #2ecc71;">비용 절감, 내부 역량 강화</strong>
+                </div>
+            </div>
         </div>
     </div>
 
-
-    <h3 class="mt-5">4. 이슈 발생 및 해결 방안</h3>
-    <p class="text-muted small"><em>(이슈 발생 및 해결 방안은 현재 수집 중이며, 추후 추가될 예정입니다.)</em></p>
-    <ul>
-        <li><strong>(이슈 사항 1)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
-        <li><strong>(이슈 사항 2)</strong><br> 내용: (내용 추가 예정)<br>해결 방안: (해결 방안 추가 예정)</li>
-    </ul>
-
-
-    <h3 class="mt-5">5. 도입 성과 상세</h3>
+    <h3 class="mt-5">4. 도입 성과 상세</h3>
     <p>VBA 기반 자동화를 통해 단순 반복 작업을 제거하고 외주 비용을 절감했습니다.</p>
     
     <h5 class="mt-4">업무/비용 비교</h5>
@@ -139,10 +218,12 @@
     <ul class="list-unstyled">
         <li><i class="fas fa-check-circle text-success me-2"></i>워드 파일 수동 복사/정리의 단순 작업 제거</li>
         <li><i class="fas fa-check-circle text-success me-2"></i>외주 비용 절감을 통한 예산 효율화</li>
-        <li><i class("fas fa-check-circle text-success me-2")></i>내부 검토 시간 단축 (자동화로 일관된 품질 유지)</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>내부 검토 시간 단축 (자동화로 일관된 품질 유지)</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>내부 역량 강화 (외부 의존도 감소)</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>작업 속도 향상</li>
     </ul>
 
-    <h3 class="mt-5">6. 첨부파일</h3>
+    <h3 class="mt-5">5. 첨부파일</h3>
     <p>아래 링크를 클릭하여 자동화 관련 파일을 다운로드할 수 있습니다.</p>
     
     <ul class="list-unstyled">
