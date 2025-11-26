@@ -180,9 +180,9 @@ async function loadContent(srcUrl, targetHash, isSearchResult = false, clickedEl
 
         contentLoader.innerHTML = html; 
 
-        // --- 북마크 버튼 동적 삽입 로직 (변경 없음) ---
+        // --- 북마크 버튼 동적 삽입 로직 [MODIFIED] ---
         const currentCaseId = targetHash.replace('#', '');
-        if (currentCaseId && currentCaseId !== 'case-home' && !isSearchResult) {
+        if (currentCaseId && currentCaseId !== 'case-home') {
             const cardH2 = contentLoader.querySelector('.case-card h2');
             if (cardH2) {
                 const h2Styles = window.getComputedStyle(cardH2);
@@ -471,10 +471,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 2. 로고 클릭 시 (홈으로) (변경 없음)
+    // 2. 로고 클릭 시 (홈으로) - [MODIFIED] 모든 사이드바 메뉴 접기 기능 추가
     if (logoLink) {
         logoLink.addEventListener('click', function (event) {
             event.preventDefault();
+            
+            // [NEW] 모든 사이드바 메뉴 접기
+            const allSubmenus = document.querySelectorAll('.sidebar-submenu.show');
+            allSubmenus.forEach(submenu => {
+                const collapseInstance = bootstrap.Collapse.getInstance(submenu);
+                if (collapseInstance) {
+                    collapseInstance.hide();
+                } else {
+                    // collapse 인스턴스가 없는 경우 직접 생성하여 닫기
+                    new bootstrap.Collapse(submenu, { toggle: true });
+                }
+            });
+            
             showDefaultContent(); 
         });
     }
