@@ -1,0 +1,259 @@
+<style>
+    /* 모든 이미지에 공통적으로 적용될 스타일 */
+    .img-hover-zoom {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .img-hover-zoom:hover {
+        transform: scale(1.05);
+    }
+
+    .img-scaled-down {
+        height: 90%; 
+        width: 90%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+
+<div id="case-doc-db-automation" class="case-card case-content active">
+    <h2><i class="fas fa-database"></i> [데이터 처리] 교재 DB 작업 AI 업무 자동화</h2>
+    <p class="lead"><span class="badge me-2">작성자: 에듀테크기획1팀 김하나B</span><span class="badge">부문: 문서/데이터 처리 자동화</span></p>
+
+    <!-- 1. 구현 사례 기본 정보 -->
+    <div class="alert alert-secondary p-3 mb-4">
+        <ul class="list-unstyled mb-0" style="font-size: 0.95rem;">
+            <li class="mb-2">1️⃣ <strong>구현 사례 :</strong> [데이터 처리] 교재 DB 작업 AI 업무 자동화</li>
+            <li class="mb-2">2️⃣ <strong>활용 부서 :</strong> 에듀테크기획1팀</li>
+            <li class="mb-2">3️⃣ <strong>구현 도구 :</strong> Excel VBA (ChatGPT 활용)</li>
+            <li class="mb-2">4️⃣ <strong>활용 기술 :</strong> VBA, 텍스트 자동 분리, 엑셀 자동화</li>
+        </ul>
+    </div>
+
+    <!-- 2. 기술 정의 -->
+    <aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-0" style="font-size: 1rem;">📌 <strong>Excel VBA란?</strong></h5>
+        <hr>
+        <p class="mb-0 small">
+            Excel 내에서 반복 작업을 자동화하는 프로그래밍 언어예요. PDF에서 텍스트를 복사해 엑셀에 붙여넣는 단순 반복 작업을 자동화하여, 콘텐츠 DB 작업 시간을 획기적으로 단축시킬 수 있습니다.
+        </p>
+    </aside>
+
+    <!-- 3. 팟캐스트 섹션 -->
+    <aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-3"><i class="fas fa-podcast me-2"></i> 구현사례 소개 팟캐스트</h5>
+        <hr>
+        <p class="mb-2">사례를 살펴보기 전, 팟캐스트를 청취해 보세요.</p>
+        
+        <audio controls class="w-100 mb-3" style="min-height: 50px;">
+            <source src="assets/audio/db-automation-case.m4a" type="audio/mp4">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <ul class="list-unstyled small text-muted mb-0">
+            <li class="mb-2">• 본 팟캐스트는 NotebookLM으로 제작되었습니다.</li>
+            <li>
+                <a href="https://notebooklm.google.com/" target="_blank" class="text-decoration-none">
+                    <div class="bg-white border rounded p-2 px-3" style="font-family: 'Courier New', Courier, monospace; font-size: 0.9rem;">
+                        notebooklm.google.com
+                        <br>
+                        <span class="text-primary">https://notebooklm.google.com/</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- 1. 성과요약 -->
+    <h3>1. 성과요약</h3>
+    <p>Excel VBA 자동화를 통해 <strong>1권당 50분 소요되던 수동 '복사+붙여넣기' 작업을 2분으로 단축</strong>시켜, 1권당 48분을 절약하고 생산성을 25배 증가시키는 성과를 달성했습니다.</p>
+    
+    <div class="alert alert-primary fw-bold text-center fs-5">➡️ 1권당 48분 절약, 생산성 25배 증가!</div>
+
+    <!-- ★★★ 비포/애프터 카드 ★★★ -->
+    <div class="before-after-container">
+        <!-- BEFORE 카드 -->
+        <div class="ba-card before">
+            <div class="ba-card-title">
+                <i class="fas fa-times-circle"></i> 자동화 이전
+            </div>
+            <div class="ba-icon">
+                <i class="fas fa-user-clock"></i>
+            </div>
+            <div class="ba-content">
+                <p><strong>📅 소요 시간:</strong></p>
+                <p class="ba-highlight">1권당 약 50분 소요</p>
+                <p class="small text-muted">(*리딩튜터 주니어 독해집 지문 40개+문항 기준)</p>
+                
+                <p class="mt-3"><strong>👥 작업 방식:</strong></p>
+                <ul>
+                    <li>데이터 DB로 정리할 PDF 실행</li>
+                    <li>엑셀 시트에 태깅 항목 설정</li>
+                    <li>PDF에 있는 지문과 각 문장의 지시문, 보기 등의 텍스트를 복사</li>
+                    <li>엑셀 시트의 각 태깅 항목에 맞게 붙여넣기</li>
+                    <li>정답 및 해설 부분의 데이터 DB로 정리</li>
+                </ul>
+                
+                <p class="mt-3"><strong>⚠️ 문제점:</strong></p>
+                <ul>
+                    <li>지문, 문항만 분리 시에도 약 50분 소요</li>
+                    <li>단순 반복 작업으로 시간 소요가 많음</li>
+                    <li>고부가가치 업무에 투입 시간 부족</li>
+                    <li>수작업으로 인한 휴먼 에러 가능성</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- AFTER 카드 -->
+        <div class="ba-card after">
+            <div class="ba-card-title">
+                <i class="fas fa-check-circle"></i> 자동화 이후
+            </div>
+            <div class="ba-icon">
+                <i class="fas fa-database"></i>
+            </div>
+            <div class="ba-content">
+                <p><strong>⚡ 소요 시간:</strong></p>
+                <p class="ba-highlight">1권당 약 2분 소요</p>
+                
+                <p class="mt-3"><strong>🤖 작업 방식:</strong></p>
+                <ul>
+                    <li>데이터 DB로 정리할 PDF 실행</li>
+                    <li>Excel VBA 매크로 실행</li>
+                    <li>태깅 항목별 텍스트 자동 분리</li>
+                    <li>엑셀 시트에 자동 정리</li>
+                    <li>최종 검토</li>
+                </ul>
+                
+                <p class="mt-3"><strong>✅ 개선 효과:</strong></p>
+                <ul>
+                    <li><strong>1권당 48분 절약 (50분 → 2분)</strong></li>
+                    <li>생산성 25배 증가</li>
+                    <li>단순 반복 작업 제거</li>
+                    <li>고부가가치 업무 시간 확보</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. 개발배경 -->
+    <h3 class="mt-5">2. 개발배경</h3>
+    <p><strong>[ 업무 상황 ]</strong><br>
+        콘텐츠 리소스 DB화를 위해서는 태깅 항목별로 분리가 필요한데 현재 사람이 텍스트를 '복사+붙여넣기' 방식의 수동으로 진행하고 있어 시간 소요가 많아 고부가가치 업무에 투입 시간 부족.
+    </p>
+    <p><strong>[ 비효율 ]</strong><br>
+        리딩튜터 주니어 독해집 지문 40개+문항 수동 작업 시 약 50분 소요! (*지문,문항만 분리 시)
+    </p>
+    <p><strong>[ 확장 문제 ]</strong><br>
+        단순 반복 작업에 많은 시간이 소요되어 콘텐츠 분석이나 기획 등 고부가가치 업무에 집중할 수 없는 상황이었습니다.
+    </p>
+
+    <!-- 3. 개발과정 -->
+    <h3 class="mt-5">3. 개발과정</h3>
+    <p><strong>[ Excel VBA를 통한 텍스트 자동 분리 ]</strong></p>
+    
+    <!-- ★★★ 2단 프로세스 다이어그램 ★★★ -->
+    <h4 class="mt-4">자동화 프로세스 비교</h4>
+    
+    <div class="process-diagram-section">
+        <div class="process-comparison-row">
+            <!-- 자동화 이전 -->
+            <div class="process-box">
+                <div class="process-box-title">자동화 이전</div>
+                <div class="process-icons-container">
+                    <div class="process-icon-circle">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-copy"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-paste"></i>
+                    </div>
+                </div>
+                <div class="process-labels">
+                    <span class="process-label">PDF 실행</span>
+                    <span class="process-label">태깅 항목 설정</span>
+                    <span class="process-label">텍스트 복사</span>
+                    <span class="process-label">수동 붙여넣기</span>
+                </div>
+                <div class="process-description">
+                    <strong>소요 시간:</strong> 1권당 약 50분
+                    <br>
+                    단순 반복 작업, 고부가가치 업무 시간 부족
+                </div>
+            </div>
+
+            <!-- 자동화 이후 -->
+            <div class="process-box">
+                <div class="process-box-title">자동화 이후</div>
+                <div class="process-icons-container">
+                    <div class="process-icon-circle simple">
+                        <i class="fas fa-database"></i>
+                    </div>
+                </div>
+                <div class="process-labels">
+                    <span class="process-label simple">Excel VBA 실행</span>
+                    <span class="process-label simple">자동 텍스트 분리 → DB 정리</span>
+                </div>
+                <div class="process-description">
+                    <strong>소요 시간:</strong> 1권당 약 2분
+                    <br>
+                    <strong style="color: #2ecc71;">1권당 48분 절약, 생산성 25배 증가</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. 도입 성과 상세 -->
+    <h3 class="mt-5">4. 도입 성과 상세</h3>
+    <p>Excel VBA 기반 자동화를 통해 콘텐츠 DB 작업 시간을 획기적으로 단축시켰습니다.</p>
+    
+    <h5 class="mt-4">업무 시간 비교</h5>
+    <ul class="list-unstyled">
+        <li><i class="fas fa-minus-circle text-danger me-2"></i> <strong>기존 (수작업):</strong> 1권당 약 50분 소요</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>개선 (자동화):</strong> 1권당 2분 소요</li>
+    </ul>
+
+    <h5 class="mt-4">추가 개선 효과</h5>
+    <ul class="list-unstyled">
+        <li><i class="fas fa-check-circle text-success me-2"></i>1권당 48분 절약</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>생산성 25배 증가</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>단순 반복 작업 제거로 고부가가치 업무 시간 확보</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>휴먼 에러 가능성 제거</li>
+        <li><i class="fas fa-check-circle text-success me-2"></i>일관된 DB 품질 유지</li>
+    </ul>
+
+    <!-- 5. 첨부파일 -->
+    <h3 class="mt-5">5. 첨부파일</h3>
+    <p>아래 링크를 클릭하여 자동화 관련 파일을 다운로드할 수 있습니다.</p>
+    
+    <ul class="list-unstyled">
+        <li class="mb-2">
+            <i class="fas fa-download me-2 text-primary"></i>
+            <a href="assets/files/db-automation-script.xlsm" download="db-automation-script.xlsm">
+                첨부파일 1 (DB 작업 자동화 매크로.xlsm)
+            </a>
+        </li>
+        <li class="mb-2">
+            <i class="fas fa-download me-2 text-primary"></i>
+            <a href="assets/files/db-automation-guide.txt" download="db-automation-guide.txt">
+                첨부파일 2 (사용 가이드.txt)
+            </a>
+        </li>
+    </ul>
+
+</div>

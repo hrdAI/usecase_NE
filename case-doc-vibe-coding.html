@@ -1,0 +1,355 @@
+<style>
+    /* 모든 이미지에 공통적으로 적용될 스타일 */
+    .img-hover-zoom {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .img-hover-zoom:hover {
+        transform: scale(1.05);
+    }
+
+    .img-scaled-down {
+        height: 90%; 
+        width: 90%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* 오디오 플레이어 커스텀 스타일 */
+    .podcast-audio-container {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 15px 0;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .podcast-audio-container audio {
+        width: 100%;
+        min-height: 54px;
+        border-radius: 8px;
+        filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+    }
+
+    .podcast-info {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 8px;
+        padding: 12px 15px;
+        margin-top: 12px;
+    }
+</style>
+
+<div id="case-doc-vibe-coding" class="case-card case-content active">
+    <h2><i class="fas fa-globe"></i> [웹 개발] 바이브코딩 활용 AI 사례집 웹사이트 구축</h2>
+    <p class="lead"><span class="badge me-2">작성자: 인사전략팀 김명은 매니저</span><span class="badge">부문: 웹 개발/지식관리 자동화</span></p>
+
+    <div class="alert alert-secondary p-3 mb-4">
+        <ul class="list-unstyled mb-0" style="font-size: 0.95rem;">
+            <li class="mb-2">1️⃣ <strong>구현 사례 :</strong> [웹 개발] 바이브코딩 활용 AI 사례집 웹사이트 구축</li>
+            <li class="mb-2">2️⃣ <strong>활용 부서 :</strong> 인사전략팀 김명은 매니저</li>
+            <li class="mb-2">3️⃣ <strong>구현 도구 :</strong> 바이브코딩 (Vibe Coding), Claude AI</li>
+            <li class="mb-2">4️⃣ <strong>활용 기술 :</strong> AI 코드 생성, 웹 프론트엔드 개발, 자동화</li>
+        </ul>
+    </div>
+
+    <aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-0" style="font-size: 1rem;">📌 <strong>바이브코딩(Vibe Coding)이란?</strong></h5>
+        <hr>
+        <p class="mb-0 small">
+            바이브코딩은 프로그래밍 지식 없이도 자연어로 원하는 기능을 설명하면 AI가 자동으로 코드를 생성하고 실행하는 방식입니다. 
+            Claude AI와 같은 대화형 AI를 활용해 "이런 웹사이트 만들어줘"라고 요청하면, AI가 HTML, CSS, JavaScript 코드를 작성하고 
+            즉시 실행 가능한 파일로 만들어줍니다. 마치 대화하듯 코딩하는 새로운 개발 방식으로, 
+            비개발자도 아이디어를 바로 구현할 수 있게 해주는 혁신적인 접근법입니다.
+        </p>
+    </aside>
+
+    <aside class="alert alert-light mb-4">
+        <h5 class="alert-heading mb-3"><i class="fas fa-podcast me-2"></i> 구현사례 소개 팟캐스트</h5>
+        <hr>
+        <p class="mb-2">사례를 살펴보기 전, 팟캐스트를 청취해 보세요.</p>
+        
+        <!-- 오디오 플레이어 -->
+        <div class="podcast-audio-container">
+            <audio controls class="w-100" preload="metadata">
+                <source src="../assets/audio/vibe-coding-case.m4a" type="audio/mp4">
+                Your browser does not support the audio element.
+            </audio>
+            
+            <div class="podcast-info">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-microphone-alt me-2 text-primary"></i>
+                    <small class="text-muted">
+                        <strong>팟캐스트:</strong> 바이브코딩 활용 AI 사례집 구축
+                    </small>
+                </div>
+            </div>
+        </div>
+        
+        <ul class="list-unstyled small text-muted mb-0 mt-3">
+            <li class="mb-2">• 본 팟캐스트는 NotebookLM으로 제작되었습니다.</li>
+            <li>
+                <a href="https://notebooklm.google.com/" target="_blank" class="text-decoration-none">
+                    <div class="bg-white border rounded p-2 px-3" style="font-family: 'Courier New', Courier, monospace; font-size: 0.9rem;">
+                        notebooklm.google.com
+                        <br>
+                        <span class="text-primary">https://notebooklm.google.com/</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <h3>1. 성과요약</h3>
+    <p>바이브코딩을 통해 <strong>기존 문서형 사례집의 한계를 극복하고, 웹 기반 인터랙티브 사례집을 구축</strong>하여, 사례 추가·수정 시간을 약 80% 단축(추정)하고 구성원의 사례집 활용률을 높일 것으로 기대됩니다.</p>
+    
+    <div class="alert alert-primary fw-bold text-center fs-5">➡️ 사례 업데이트 약 80% 단축(예상) + 활용률 증가 기대!</div>
+
+    <!-- ★★★ 비포/애프터 카드 ★★★ -->
+    <div class="before-after-container">
+        <!-- BEFORE 카드 -->
+        <div class="ba-card before">
+            <div class="ba-card-title">
+                <i class="fas fa-times-circle"></i> 자동화 이전
+            </div>
+            <div class="ba-icon">
+                <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="ba-content">
+                <p><strong>📅 소요 시간:</strong></p>
+                <p class="ba-highlight">사례 1개 추가 시 평균 2시간 소요</p>
+                
+                <p class="mt-3"><strong>👥 작업 방식:</strong></p>
+                <ul>
+                    <li>사례를 워드/한글 문서로 작성</li>
+                    <li>이미지, 코드, 링크 수동 삽입</li>
+                    <li>PDF로 변환 및 레이아웃 조정</li>
+                    <li>전체 사례집 PDF 재편집</li>
+                    <li>이메일 또는 공유 폴더로 재배포</li>
+                    <li>구성원들은 PDF 다운로드 후 확인</li>
+                </ul>
+                
+                <p class="mt-3"><strong>⚠️ 문제점:</strong></p>
+                <ul>
+                    <li>가독성이 낮고 탐색이 불편함</li>
+                    <li>사례 검색·필터링 불가능</li>
+                    <li>사례 추가 시 전체 재작성 필요</li>
+                    <li>이미지/영상 삽입 제한적</li>
+                    <li>활용률 저조</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- AFTER 카드 -->
+        <div class="ba-card after">
+            <div class="ba-card-title">
+                <i class="fas fa-check-circle"></i> 자동화 이후
+            </div>
+            <div class="ba-icon">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="ba-content">
+                <p><strong>⚡ 소요 시간:</strong></p>
+                <p class="ba-highlight">사례 1개 추가 시 평균 20분 소요 (예상)</p>
+                
+                <p class="mt-3"><strong>🤖 작업 방식:</strong></p>
+                <ul>
+                    <li>웹 관리자 페이지에서 사례 입력</li>
+                    <li>AI가 자동으로 템플릿 적용</li>
+                    <li>카테고리·태그 자동 생성</li>
+                    <li>이미지·코드·영상 간편 삽입</li>
+                    <li>실시간 미리보기로 즉시 확인</li>
+                    <li>사례 페이지 자동 생성 및 배포</li>
+                </ul>
+                
+                <p class="mt-3"><strong>✅ 개선 효과 (예상):</strong></p>
+                <ul>
+                    <li><strong>사례 추가 시간 약 80% 단축 (2시간 → 20분)</strong></li>
+                    <li>검색·필터·카테고리별 탐색 가능</li>
+                    <li>실시간 업데이트 및 즉시 공유</li>
+                    <li>멀티미디어 콘텐츠 자유롭게 활용</li>
+                    <li><strong>활용률 증가 기대</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mt-5">2. 개발배경</h3>
+    <p><strong>[ 업무 상황 ]</strong><br>사내 AI 교육 과정에서 구성원들이 제출한 다양한 AI 활용 사례들을 체계적으로 관리하고, 전사에 효과적으로 공유할 수 있는 플랫폼이 필요했습니다. 교육 이수자들의 우수 사례를 단순히 수집하는 것에 그치지 않고, 다른 구성원들이 실무에 직접 활용할 수 있도록 쉽게 접근 가능한 형태로 제공할 필요가 있었습니다.</p>
+    
+    <p><strong>[ 비효율 ]</strong><br>기존 문서형 사례집(PDF)은 가독성이 낮고, 공유·확장·검색이 어려웠습니다. 사례를 추가하거나 수정할 때마다 PDF 전체를 재작성하고 재배포해야 했으며, 이미지/코드/영상 사례 삽입도 번거로웠습니다. 사용자 입장에서는 원하는 사례를 검색하거나 필터링하기 어려워 활용도가 낮았습니다.</p>
+    
+    <p><strong>[ 확장 문제 ]</strong><br>교육을 통해 제출되는 사례가 늘어날수록 문서 관리가 복잡해지고, 업데이트에 많은 시간이 소요될 것으로 예상되었습니다. 또한 정적인 문서 형태로는 구성원들이 자신의 업무에 적용 가능한 사례를 빠르게 찾기 어렵고, 결과적으로 좋은 사례들이 충분히 활용되지 못할 가능성이 높았습니다.</p>
+
+    <h3 class="mt-5">3. 개발과정</h3>
+    <p><strong>[ 바이브코딩을 통한 웹 기반 사례집 구축 ]</strong></p>
+    
+    <!-- ★★★ 2단 프로세스 다이어그램 ★★★ -->
+    <h4 class="mt-4">개발 프로세스 비교</h4>
+    
+    <div class="process-diagram-section">
+        <div class="process-comparison-row">
+            <!-- 자동화 이전 -->
+            <div class="process-box">
+                <div class="process-box-title">자동화 이전</div>
+                <div class="process-icons-container">
+                    <div class="process-icon-circle">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="process-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="process-icon-circle">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                </div>
+                <div class="process-labels">
+                    <span class="process-label">문서 작성</span>
+                    <span class="process-label">이미지 삽입</span>
+                    <span class="process-label">PDF 변환</span>
+                    <span class="process-label">재배포</span>
+                </div>
+                <div class="process-description">
+                    <strong>소요 시간:</strong> 사례 1개당 2시간
+                    <br>
+                    검색 불가, 업데이트 시 전체 재작성
+                </div>
+            </div>
+
+            <!-- 자동화 이후 -->
+            <div class="process-box">
+                <div class="process-box-title">자동화 이후</div>
+                <div class="process-icons-container">
+                    <div class="process-icon-circle simple">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                </div>
+                <div class="process-labels">
+                    <span class="process-label simple">AI에게 요청</span>
+                    <span class="process-label simple">웹사이트 자동 생성 + 즉시 배포</span>
+                </div>
+                <div class="process-description">
+                    <strong>소요 시간:</strong> 사례 1개당 20분 (예상)
+                    <br>
+                    <strong style="color: #2ecc71;">약 80% 시간 단축, 검색·필터 지원, 실시간 업데이트</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="mt-4">주요 구현 단계</h4>
+    <ol>
+        <li><strong>요구사항 정의:</strong> 
+            <ul>
+                <li>사례 카테고리별 분류 (문서 자동화, 데이터 분석, 이미지 생성 등)</li>
+                <li>검색 및 필터링 기능</li>
+                <li>반응형 디자인 (모바일/PC 모두 지원)</li>
+                <li>사례 추가/수정이 간편한 관리자 페이지</li>
+            </ul>
+        </li>
+        <li><strong>바이브코딩 실행:</strong>
+            <ul>
+                <li>Claude AI에게 자연어로 요구사항 전달</li>
+                <li>AI가 HTML, CSS, JavaScript 코드 자동 생성</li>
+                <li>실시간 피드백을 통한 디자인 개선</li>
+            </ul>
+        </li>
+        <li><strong>템플릿 및 자동화 구축:</strong>
+            <ul>
+                <li>사례 입력 템플릿 자동 생성</li>
+                <li>카테고리 및 태그 자동 분류</li>
+                <li>키워드 추출 및 요약 기능</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3 class="mt-5">4. 기대 성과</h3>
+    <p>바이브코딩을 통한 웹 기반 사례집 구축으로 다음과 같은 효과를 기대하고 있습니다.</p>
+    
+    <!-- ★★★ 기대 성과 카드 ★★★ -->
+    <div class="row g-3 mt-3 mb-4">
+        <div class="col-md-4">
+            <div class="card h-100 border-primary">
+                <div class="card-body">
+                    <h5 class="card-title text-primary"><i class="fas fa-clock me-2"></i>업무 시간 대폭 단축</h5>
+                    <hr>
+                    <ul class="mb-0">
+                        <li><strong>사례 추가:</strong> 2시간 → 20분 (약 80% 단축)</li>
+                        <li><strong>사례 수정:</strong> 1시간 → 10분 (약 83% 단축)</li>
+                        <li><strong>전체 배포:</strong> 30분 → 즉시 (100% 단축)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-success">
+                <div class="card-body">
+                    <h5 class="card-title text-success"><i class="fas fa-users me-2"></i>사용자 경험 개선</h5>
+                    <hr>
+                    <ul class="mb-0">
+                        <li>검색·필터로 원하는 사례 즉시 탐색</li>
+                        <li>멀티미디어 콘텐츠로 이해도 향상</li>
+                        <li>실시간 업데이트로 최신 정보 제공</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-info">
+                <div class="card-body">
+                    <h5 class="card-title text-info"><i class="fas fa-chart-line me-2"></i>활용도 증가</h5>
+                    <hr>
+                    <ul class="mb-0">
+                        <li>접근성 향상으로 조회수 증가 기대</li>
+                        <li>사례 공유 문화 활성화</li>
+                        <li>AI 활용 확산 효과</li>
+                        <li>비개발자의 사례 등록 참여 증가</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mt-5">5. 구현 팁 및 주의사항</h3>
+    
+    <h5 class="mt-3">💡 바이브코딩 활용 팁</h5>
+    <ul>
+        <li><strong>명확한 요구사항:</strong> AI에게 구체적이고 명확한 요구사항을 전달하세요</li>
+        <li><strong>반복적 개선:</strong> 첫 결과물을 보고 피드백하며 점진적으로 개선하세요</li>
+        <li><strong>예시 제공:</strong> 원하는 디자인이나 기능의 예시를 보여주면 더 정확합니다</li>
+        <li><strong>단계별 접근:</strong> 복잡한 기능은 작은 단위로 나누어 요청하세요</li>
+    </ul>
+
+    <h5 class="mt-3">⚠️ 주의사항</h5>
+    <ul>
+        <li><strong>보안:</strong> 민감한 정보는 별도 보안 조치 필요</li>
+        <li><strong>코드 검토:</strong> AI 생성 코드는 반드시 검토 후 사용</li>
+        <li><strong>백업:</strong> 정기적인 데이터 백업 필수</li>
+        <li><strong>접근성:</strong> 웹 접근성 가이드라인 준수</li>
+    </ul>
+
+    <h3 class="mt-5">6. 첨부파일</h3>
+    <p>아래 링크를 클릭하여 관련 자료를 다운로드할 수 있습니다.</p>
+    
+    <ul class="list-unstyled">
+        <li class="mb-2">
+            <i class="fas fa-download me-2 text-primary"></i>
+            <a href="assets/files/case-template.html" download="case-template.html">
+                첨부파일 (사례집 템플릿.html)
+            </a>
+        </li>
+    </ul>
+
+</div>
