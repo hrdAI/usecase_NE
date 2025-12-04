@@ -1,0 +1,188 @@
+{
+  "mainCategories": [
+    {
+      "type": "main-category",
+      "name": "홈",
+      "icon": "fas fa-home",
+      "id": "home",
+      "src": "portfolio/home.html"
+    },
+    {
+      "type": "main-category",
+      "name": "프로필",
+      "icon": "fas fa-user",
+      "id": "profile",
+      "src": "portfolio/profile.html"
+    },
+    {
+      "type": "main-category",
+      "name": "경력 상세",
+      "icon": "fas fa-briefcase",
+      "id": "career",
+      "cases": [
+        {
+          "id": "career-overview",
+          "title": "한눈에 보기",
+          "src": "portfolio/career-overview.html"
+        },
+        {
+          "id": "career-neungyule",
+          "title": "NE능률 (2021-현재)",
+          "src": "portfolio/career-neungyule.html"
+        },
+        {
+          "id": "career-daeyeon",
+          "title": "대연 (2019-2021)",
+          "src": "portfolio/career-daeyeon.html"
+        },
+        {
+          "id": "career-bohara",
+          "title": "보하라 (2018-2019)",
+          "src": "portfolio/career-bohara.html"
+        },
+        {
+          "id": "career-beautynk",
+          "title": "뷰티엔케이 (2016-2018)",
+          "src": "portfolio/career-beautynk.html"
+        },
+        {
+          "id": "career-kepco",
+          "title": "한전KDN (2012-2013)",
+          "src": "portfolio/career-kepco.html"
+        }
+      ]
+    },
+    {
+      "type": "main-category",
+      "name": "핵심 성과 사례",
+      "icon": "fas fa-star",
+      "id": "achievements",
+      "subcategories": [
+        {
+          "name": "교육",
+          "icon": "fas fa-graduation-cap",
+          "id": "education",
+          "cases": [
+            {
+              "id": "case-fullcycle",
+              "title": "Full-Cycle 역량개발 프로그램",
+              "src": "portfolio/case-fullcycle.html"
+            },
+            {
+              "id": "case-dxacademy",
+              "title": "DX Academy 운영",
+              "src": "portfolio/case-dxacademy.html"
+            },
+            {
+              "id": "case-onboarding",
+              "title": "온보딩 프로그램 재설계",
+              "src": "portfolio/case-onboarding.html"
+            },
+            {
+              "id": "case-new-employee",
+              "title": "신입사원 연간 육성 프로그램",
+              "src": "portfolio/case-new-employee.html"
+            },
+            {
+              "id": "case-cs-content",
+              "title": "CS 교육 상황극 콘텐츠",
+              "src": "portfolio/case-cs-content.html"
+            },
+            {
+              "id": "case-retail-roadmap",
+              "title": "리테일 직급별 역량 로드맵 구축",
+              "src": "portfolio/case-retail-roadmap.html"
+            },
+            {
+              "id": "case-lms",
+              "title": "LMS 최적화",
+              "src": "portfolio/case-lms.html"
+            },
+            {
+              "id": "case-leadership",
+              "title": "팀장 리더십 교육",
+              "src": "portfolio/case-leadership.html"
+            },
+            {
+              "id": "case-video",
+              "title": "영상 콘텐츠 제작",
+              "src": "portfolio/case-video.html"
+            }
+          ]
+        },
+        {
+          "name": "조직문화",
+          "icon": "fas fa-users",
+          "id": "culture",
+          "cases": [
+            {
+              "id": "case-platform",
+              "title": "사내 소통 플랫폼 구축",
+              "src": "portfolio/case-platform.html"
+            },
+            {
+              "id": "case-metaverse",
+              "title": "조직문화 진단 메타버스화",
+              "src": "portfolio/case-metaverse.html"
+            },
+            {
+              "id": "case-cop",
+              "title": "학습조직(CoP) 제도화",
+              "src": "portfolio/case-cop.html"
+            },
+            {
+              "id": "case-auction",
+              "title": "사내 옥션 (실시간 스트리밍)",
+              "src": "portfolio/case-auction.html"
+            },
+            {
+              "id": "case-challengers",
+              "title": "챌린져스 (습관형성 프로그램)",
+              "src": "portfolio/case-challengers.html"
+            },
+            {
+              "id": "case-ojumhamgo",
+              "title": "오점함고 (참여형 점심 프로그램)",
+              "src": "portfolio/case-ojumhamgo.html"
+            },
+            {
+              "id": "case-reading",
+              "title": "독서토론/독서동호회 운영",
+              "src": "portfolio/case-reading.html"
+            },
+            {
+              "id": "case-photo",
+              "title": "팀별 사진전 & N행시 이벤트",
+              "src": "portfolio/case-photo.html"
+            },
+            {
+              "id": "case-vlog",
+              "title": "브이로그·인터뷰 영상 제작",
+              "src": "portfolio/case-vlog.html"
+            },
+            {
+              "id": "case-youtube",
+              "title": "유튜브 채널 운영 (대연)",
+              "src": "portfolio/case-youtube.html"
+            },
+            {
+              "id": "case-online-event",
+              "title": "온라인 행사 기획·운영",
+              "src": "portfolio/case-online-event.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "main-category",
+      "name": "Skills & 자격",
+      "icon": "fas fa-tools",
+      "id": "skills",
+      "src": "portfolio/skills.html"
+    },
+    {
+      "type": "main-category-spacer"
+    }
+  ]
+}
