@@ -72,12 +72,7 @@
               "id": "case-dxacademy",
               "title": "DX Academy 운영",
               "src": "portfolio/case-dxacademy.html"
-            },
-            {
-              "id": "case-onboarding",
-              "title": "온보딩 프로그램 재설계",
-              "src": "portfolio/case-onboarding.html"
-            },
+            },            
             {
               "id": "case-new-employee",
               "title": "신입사원 연간 육성 프로그램",
@@ -102,11 +97,6 @@
               "id": "case-leadership",
               "title": "팀장 리더십 교육",
               "src": "portfolio/case-leadership.html"
-            },
-            {
-              "id": "case-video",
-              "title": "영상 콘텐츠 제작",
-              "src": "portfolio/case-video.html"
             }
           ]
         },
@@ -116,9 +106,9 @@
           "id": "culture",
           "cases": [
             {
-              "id": "case-platform",
-              "title": "사내 소통 플랫폼 구축",
-              "src": "portfolio/case-platform.html"
+              "id": "case-onboarding",
+              "title": "온보딩 프로그램 설계",
+              "src": "portfolio/case-onboarding.html"
             },
             {
               "id": "case-metaverse",
@@ -129,6 +119,11 @@
               "id": "case-cop",
               "title": "학습조직(CoP) 제도화",
               "src": "portfolio/case-cop.html"
+            },
+            {
+              "id": "case-video",
+              "title": "영상 콘텐츠 제작",
+              "src": "portfolio/case-video.html"
             },
             {
               "id": "case-auction",
