@@ -121,7 +121,28 @@
               "src": "portfolio/case-cop.html"
             },
             {
-             임 운영",
+              "id": "case-video",
+              "title": "영상 콘텐츠 제작",
+              "src": "portfolio/case-video.html"
+            },
+            {
+              "id": "case-auction",
+              "title": "사내 옥션 (실시간 스트리밍)",
+              "src": "portfolio/case-auction.html"
+            },
+            {
+              "id": "case-challengers",
+              "title": "챌린져스 (습관형성 프로그램)",
+              "src": "portfolio/case-challengers.html"
+            },
+            {
+              "id": "case-ojumhamgo",
+              "title": "오점함고 (참여형 점심 프로그램)",
+              "src": "portfolio/case-ojumhamgo.html"
+            },
+            {
+              "id": "case-reading",
+              "title": "독서토론/독서동호회 운영",
               "src": "portfolio/case-reading.html"
             },
             {
